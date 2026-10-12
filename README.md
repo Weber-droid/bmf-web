@@ -37,7 +37,7 @@ If the production domain changes, update `url` in `content/site.ts`. It drives c
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | `content/site.ts`                    | Site name and URL, navigation, the "Get the App" button, app store links, contact details, footer, 404 copy |
 | `content/home.ts`                    | Home page: hero, marquee words, community statement, How it Works, Riders/Vendors teasers, Lunch Scheme     |
-| `content/vendors.ts`                 | Vendors page: hero, services, technology, How it Works, Why BMF lists, partner logos                        |
+| `content/vendors.ts`                 | Vendors page: hero, services, technology, How it Works, Why BMF lists                                       |
 | `content/riders.ts`                  | Riders page: hero, benefits, requirements                                                                   |
 | `content/legal/privacy-policy.ts`    | Privacy Policy, as structured blocks                                                                        |
 | `content/legal/terms-conditions.ts`  | Terms & conditions, as structured blocks                                                                    |
@@ -65,11 +65,11 @@ components/
   decor/                   Decorative SVGs (blobs, Accra map, kente strip)
   button.tsx  section.tsx  section-heading.tsx  app-store-buttons.tsx
   step-card.tsx  feature-card.tsx  check-list.tsx  contact-section.tsx
-  logo-marquee.tsx  marquee-strip.tsx  scroll-cue.tsx  page-hero.tsx
+  marquee-strip.tsx  scroll-cue.tsx  page-hero.tsx
 
 content/                   Editable copy (see above)
 lib/                       Helpers: fonts, metadata, utils, OG image renderer
-public/images/             Photos, illustrations, partner logos, store badges
+public/images/             Photos, illustrations, store badges
 ```
 
 ## Design system

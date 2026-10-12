@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { ContactSection } from "@/components/contact-section";
-import { LogoMarquee } from "@/components/logo-marquee";
 import { RevealGroup } from "@/components/motion/reveal";
 import { WordReveal } from "@/components/motion/word-reveal";
 import { PageHero } from "@/components/page-hero";
@@ -21,7 +20,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function VendorsPage() {
-  const { hero, howItWorks, partners } = vendors;
+  const { hero, howItWorks } = vendors;
 
   return (
     <>
@@ -60,11 +59,6 @@ export default function VendorsPage() {
       <div className="bg-cream-2">
         <WhyBmf />
       </div>
-
-      <Section spacing="tight" className="overflow-hidden">
-        <SectionHeading title={partners.title} align="center" />
-        <LogoMarquee logos={partners.logos} className="mt-10" />
-      </Section>
 
       <ContactSection />
     </>

@@ -124,14 +124,4 @@ export const vendors = {
       "We have a strong rider network who care about food as much as you do and will always ensure deliveries are on time.",
     ],
   },
-
-  partners: {
-    title: "Our Technology Partners",
-    logos: [
-      { src: "/images/partners/aws.jpg", alt: "AWS", width: 100, height: 72 },
-      { src: "/images/partners/google.jpg", alt: "Google", width: 173, height: 74 },
-      { src: "/images/partners/google-apis.jpg", alt: "Google APIs", width: 255, height: 62 },
-      { src: "/images/partners/flutterwave.jpg", alt: "Flutterwave", width: 293, height: 66 },
-    ] satisfies ImageAsset[],
-  },
 };
