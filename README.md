@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BringMe-Food website
 
-## Getting Started
+Marketing site for [BringMe-Food](https://bringme-food.com), the food delivery platform based in Accra, Ghana.
 
-First, run the development server:
+Built with **Next.js 15** (App Router, TypeScript strict), **Tailwind CSS v4**, **Framer Motion**, **shadcn/ui** primitives (Radix Dialog) and **lucide-react** icons.
+
+## Getting started
+
+Requires Node.js 18.18 or newer.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Script                 | What it does                                 |
+| ---------------------- | -------------------------------------------- |
+| `npm run dev`          | Start the dev server (Turbopack)             |
+| `npm run build`        | Production build (type-checks and lints too) |
+| `npm run start`        | Serve the production build                   |
+| `npm run lint`         | ESLint                                       |
+| `npm run typecheck`    | TypeScript, no emit                          |
+| `npm run format`       | Prettier (with Tailwind class sorting)       |
+| `npm run format:check` | Prettier, check only                         |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Deploying
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project deploys to Vercel with zero configuration: import the repo and keep the defaults. Every page is statically generated.
 
-## Learn More
+If the production domain changes, update `url` in `content/site.ts`. It drives canonical URLs, Open Graph tags, the sitemap, robots.txt and the JSON-LD.
 
-To learn more about Next.js, take a look at the following resources:
+## Editing content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**All copy lives in `/content`**, and components only read from it. To change wording, edit the relevant file and save. TypeScript will flag anything that no longer fits the expected shape.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| File                                 | What's in it                                                                                                |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `content/site.ts`                    | Site name and URL, navigation, the "Get the App" button, app store links, contact details, footer, 404 copy |
+| `content/home.ts`                    | Home page: hero, marquee words, community statement, How it Works, Riders/Vendors teasers, Lunch Scheme     |
+| `content/vendors.ts`                 | Vendors page: hero, services, technology, How it Works, Why BMF lists, partner logos                        |
+| `content/riders.ts`                  | Riders page: hero, benefits, requirements                                                                   |
+| `content/legal/privacy-policy.ts`    | Privacy Policy, as structured blocks                                                                        |
+| `content/legal/terms-conditions.ts`  | Terms & conditions, as structured blocks                                                                    |
+| `content/types.ts`, `legal/types.ts` | The shapes the content must follow                                                                          |
 
-## Deploy on Vercel
+Some things to know:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Highlighted words.** A few headings have a `highlight` field, for example `home.hero.highlight: "Food Lovers"`. It must match text inside the heading exactly. That phrase gets the brand colour, and if it doesn't match, the heading simply renders unhighlighted.
+- **Community statement.** `home.community.parts` is the sentence split into pieces so the three groups can be styled as pills. Joined together, the parts must read as the full sentence.
+- **The "15\* minutes" stat** on the Vendors page lives in `vendors.technology.lead.stat`. The paragraph text around it is split into `before` and `after`.
+- **Copyright year.** Use `{year}` in `site.footer.copyright`. It's filled in automatically.
+- **Images.** Put files in `public/images/` and reference them as `/images/your-file.jpg`, with real `width` and `height` values (in pixels) and descriptive `alt` text. Decorative images use `alt: ""`.
+- **Icons.** Service cards use an `icon` name from the `IconName` list in `content/types.ts`. To add an icon, pick one from [lucide.dev](https://lucide.dev), then add it to that list and to `components/icon.tsx`.
+- **Legal pages.** Each block is `{ type: "h2" | "h3", id, text }`, `{ type: "p", content }` or `{ type: "ul", items }`. Bold text inside a paragraph is written as `{ strong: "..." }`. The table of contents is built from the `h2` blocks automatically.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Folder structure
+
+```
+app/                       Routes (App Router)
+  layout.tsx               Fonts, header, footer, skip link, JSON-LD, motion provider
+  page.tsx                 Home
+  vendors/  riders/        Marketing pages
+  privacy-policy/  terms-conditions/
+  not-found.tsx            404
+  sitemap.ts  robots.ts    SEO routes
+  opengraph-image.tsx      Generated social card (also twitter-image.tsx)
+  icon.png                 Favicon
+  globals.css              Design tokens, type scale, keyframes, utilities
+
+components/
+  ui/                      shadcn/ui primitives (dialog, sheet)
+  motion/                  Client-side motion: Reveal, WordReveal, Parallax, Counter, ProgressRing
+  layout/                  Header, mobile menu, footer, logo
+  home/  vendors/  riders/  legal/   Page-specific sections
+  decor/                   Decorative SVGs (blobs, Accra map, kente strip)
+  button.tsx  section.tsx  section-heading.tsx  app-store-buttons.tsx
+  step-card.tsx  feature-card.tsx  check-list.tsx  contact-section.tsx
+  logo-marquee.tsx  marquee-strip.tsx  scroll-cue.tsx  page-hero.tsx
+
+content/                   Editable copy (see above)
+lib/                       Helpers: fonts, metadata, utils, OG image renderer
+public/images/             Photos, illustrations, partner logos, store badges
+```
+
+## Design system
+
+Tokens are CSS variables in `app/globals.css`, exposed to Tailwind through `@theme`:
+
+| Token                      | Value                 | Use                                                  |
+| -------------------------- | --------------------- | ---------------------------------------------------- |
+| `indigo`                   | `#2B2A63`             | Primary brand colour, from the logo                  |
+| `saffron`                  | `#FFB020`             | Highlights, badges, blobs, from the app UI           |
+| `jollof`                   | `#E8462B`             | Decorative accent and large type                     |
+| `jollof-strong`            | `#C93A1F`             | Buttons and small text on cream (WCAG AA with white) |
+| `ink`                      | `#14122B`             | Body text, dark sections, footer                     |
+| `cream` / `cream-2`        | `#FFF7EC` / `#FCEBD3` | Page background and alternate sections               |
+| `text-hero` … `text-title` | `clamp()` scale       | Fluid headings                                       |
+
+Fonts are loaded with `next/font`: **Bricolage Grotesque** for display and **Plus Jakarta Sans** for body text.
+
+Motion respects `prefers-reduced-motion`: Framer Motion uses `reducedMotion="user"`, and CSS animations are neutralised by a media query. Scroll-reveal content stays visible without JavaScript thanks to a `<noscript>` style.
