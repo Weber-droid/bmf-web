@@ -81,11 +81,24 @@ export function SiteFooter() {
           {site.name}
         </div>
 
-        <p className="mt-6 border-t border-cream/10 pt-8 text-sm text-cream/65">
-          {copyrightBefore}
-          <CurrentYear initial={year} />
-          {copyrightAfter}
-        </p>
+        <div className="mt-6 flex flex-col gap-3 border-t border-cream/10 pt-8 text-sm text-cream/65 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            {copyrightBefore}
+            <CurrentYear initial={year} />
+            {copyrightAfter}
+          </p>
+          <p>
+            {footer.credit.prefix}{" "}
+            <a
+              href={footer.credit.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-cream underline-offset-4 hover:underline"
+            >
+              {footer.credit.label}
+            </a>
+          </p>
+        </div>
       </Container>
     </footer>
   );

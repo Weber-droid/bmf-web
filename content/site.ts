@@ -60,6 +60,11 @@ export const site = {
     ] satisfies Link[],
     // {year} is filled in automatically
     copyright: "Copyright © {year} Bring Me-Group. All rights reserved",
+    credit: {
+      prefix: "Website by",
+      label: "Deduce Solutions",
+      href: "https://deducesolutions.com/",
+    },
   },
 } as const;
 
