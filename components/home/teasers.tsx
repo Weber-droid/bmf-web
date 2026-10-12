@@ -58,7 +58,7 @@ function TeaserCard({
         className={cn("glow absolute -right-24 -bottom-24 -z-10 size-96", look.glow)}
       />
 
-      <div className="relative m-3 aspect-[4/3] overflow-hidden rounded-[1.6rem] sm:m-4 sm:aspect-auto sm:min-h-[26rem] sm:rounded-[2rem]">
+      <div className="relative m-3 aspect-[5/4] overflow-hidden rounded-[1.6rem] sm:m-4 sm:aspect-auto sm:min-h-[26rem] sm:rounded-[2rem]">
         <Image
           src={teaser.image.src}
           quality={IMAGE_QUALITY}
@@ -66,7 +66,7 @@ function TeaserCard({
           fill
           sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 92vw"
           className={cn(
-            "object-cover object-[50%_25%] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105",
+            "object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 sm:object-[50%_25%]",
             imageTone.photo,
           )}
         />
