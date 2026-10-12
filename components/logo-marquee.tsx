@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import type { ImageAsset } from "@/content/types";
+import { IMAGE_QUALITY } from "@/lib/image";
 import { cn } from "@/lib/utils";
 
 type LogoMarqueeProps = {
@@ -8,9 +9,7 @@ type LogoMarqueeProps = {
   className?: string;
 };
 
-/** Endless, edge-faded logo carousel. Logos sit in greyscale and light up on hover. */
 export function LogoMarquee({ logos, className }: LogoMarqueeProps) {
-  // Repeat enough times that one half always overflows wide screens.
   const set = [...logos, ...logos];
 
   const row = (hidden: boolean) => (
@@ -25,11 +24,12 @@ export function LogoMarquee({ logos, className }: LogoMarqueeProps) {
         >
           <Image
             src={logo.src}
+            quality={IMAGE_QUALITY}
             alt={hidden || i >= logos.length ? "" : logo.alt}
             width={logo.width}
             height={logo.height}
             sizes="200px"
-            className="max-h-14 w-auto object-contain opacity-60 mix-blend-multiply grayscale transition duration-500 hover:scale-105 hover:opacity-100 hover:grayscale-0"
+            className="max-h-14 w-auto object-contain mix-blend-multiply brightness-[0.67] contrast-[2.93] grayscale transition duration-500 hover:scale-105 hover:brightness-[0.625] hover:contrast-[4]"
           />
         </li>
       ))}

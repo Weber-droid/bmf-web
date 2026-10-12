@@ -27,14 +27,12 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   as?: Tag;
-  /** Seconds to wait before animating */
   delay?: number;
   id?: string;
 };
 
 const viewport = { once: true, margin: "0px 0px -12% 0px" } as const;
 
-/** Fades and lifts its children into view the first time they scroll on screen. */
 export function Reveal({ children, className, as = "div", delay = 0, id }: RevealProps) {
   const Component = tags[as] as typeof m.div;
   return (
@@ -59,7 +57,6 @@ export function Reveal({ children, className, as = "div", delay = 0, id }: Revea
   );
 }
 
-/** Parent that staggers the reveal of any `RevealItem` children. */
 export function RevealGroup({
   children,
   className,

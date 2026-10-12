@@ -2,12 +2,10 @@ import { cn } from "@/lib/utils";
 
 type ScrollCueProps = {
   label: string;
-  /** Id of the section the cue scrolls to */
   target: string;
   className?: string;
 };
 
-/** Animated mouse-and-wheel cue that smooth-scrolls to the next section. */
 export function ScrollCue({ label, target, className }: ScrollCueProps) {
   return (
     <a

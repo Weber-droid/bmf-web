@@ -1,6 +1,5 @@
 import { site } from "@/content/site";
 
-/** Organization structured data for search engines. */
 export function OrganizationJsonLd() {
   const data = {
     "@context": "https://schema.org",
@@ -26,7 +25,6 @@ export function OrganizationJsonLd() {
   return (
     <script
       type="application/ld+json"
-      // JSON.stringify output is safe here: all values are static strings we control.
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );

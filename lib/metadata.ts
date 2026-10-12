@@ -4,17 +4,11 @@ import { site } from "@/content/site";
 import { ogAlt, ogSize } from "@/lib/og-image-meta";
 
 type PageMetaInput = {
-  /** Page name, rendered as "{title} – BringMe-Food". Omit for the home page. */
   title?: string;
   description: string;
   path: string;
 };
 
-/**
- * Builds per-page metadata with matching Open Graph and Twitter card tags.
- * Images are listed explicitly: a page-level `openGraph` object replaces the
- * parent's, so child routes would otherwise lose the root social image.
- */
 export function pageMetadata({ title, description, path }: PageMetaInput): Metadata {
   const fullTitle = title ? `${title} – ${site.name}` : site.name;
   return {
@@ -28,6 +22,7 @@ export function pageMetadata({ title, description, path }: PageMetaInput): Metad
       url: path,
       title: fullTitle,
       description,
+      // page-level openGraph replaces the root one, so the image has to be repeated
       images: [{ url: "/opengraph-image", ...ogSize, alt: ogAlt }],
     },
     twitter: {

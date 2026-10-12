@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/button";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import type { ImageAsset } from "@/content/types";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 type LunchSchemeDialogProps = {
   triggerLabel: string;
@@ -23,10 +25,11 @@ export function LunchSchemeDialog({ triggerLabel, modal }: LunchSchemeDialogProp
         <div className="relative h-56 sm:h-72 md:h-auto md:min-h-[32rem]">
           <Image
             src={modal.image.src}
+            quality={IMAGE_QUALITY}
             alt={modal.image.alt}
             fill
             sizes="(min-width: 768px) 400px, 100vw"
-            className="object-cover"
+            className={cn("object-cover", imageTone.photo)}
           />
         </div>
         <div className="flex flex-col gap-5 p-7 sm:p-10">

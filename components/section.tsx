@@ -13,7 +13,6 @@ const tones = {
 type SectionProps = Omit<ComponentProps<"section">, "children"> & {
   children: ReactNode;
   tone?: keyof typeof tones;
-  /** Vertical rhythm. `none` lets the content control its own spacing. */
   spacing?: "default" | "tight" | "none";
   containerClassName?: string;
 };

@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 
-/** Kente-inspired woven band in brand colours. Purely decorative. */
 export function KenteStrip({ className }: { className?: string }) {
   return (
     <div

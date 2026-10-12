@@ -11,10 +11,6 @@ type CounterProps = {
   duration?: number;
 };
 
-/**
- * Counts up to `value` when scrolled into view. The final number is rendered on
- * the server so crawlers and no-JS visitors always see the real figure.
- */
 export function Counter({ value, className, duration = 1.6 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
@@ -22,7 +18,7 @@ export function Counter({ value, className, duration = 1.6 }: CounterProps) {
   const [display, setDisplay] = useState(value);
   const armed = useRef(false);
 
-  // Reset to zero before paint, but only if the counter starts off-screen.
+  // only count up if it starts below the fold
   useIsoLayoutEffect(() => {
     if (reduce || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();

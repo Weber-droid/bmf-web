@@ -6,11 +6,9 @@ import { useRef, type ReactNode } from "react";
 type ParallaxProps = {
   children: ReactNode;
   className?: string;
-  /** Total pixels the content drifts while its container scrolls out of view */
   distance?: number;
 };
 
-/** Moves its children at a slower rate than the page as the section scrolls past. */
 export function Parallax({ children, className, distance = 90 }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();

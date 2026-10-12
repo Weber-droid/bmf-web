@@ -27,7 +27,6 @@ const icons = {
   heart: Heart,
 } satisfies Record<IconName, React.ComponentType<LucideProps>>;
 
-/** Resolves an icon name from the content files to a lucide-react icon. */
 export function Icon({ name, ...props }: { name: IconName } & LucideProps) {
   const Component = icons[name];
   return <Component aria-hidden {...props} />;

@@ -1,11 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* ---------------------------------------------------------------------------
- * Design tokens
- * Brand colours are extracted from the BringMe-Food logo (indigo ink) and the
- * app UI (saffron), with a jollof/tomato accent and a warm cream canvas.
- * ------------------------------------------------------------------------- */
+/* Design tokens */
 :root {
   --cream: #fff7ec;
   --cream-2: #fcebd3;
@@ -16,7 +12,7 @@
   --saffron: #ffb020;
   --saffron-soft: #ffe2a8;
   --jollof: #e8462b;
-  /* AA-safe jollof for white text and text on cream */
+  /* darker jollof: passes AA with white text */
   --jollof-strong: #c93a1f;
   --leaf: #2f9e5b;
   --line: rgb(20 18 43 / 0.1);
@@ -109,8 +105,7 @@
   }
 }
 
-/* Overlay keyframes (Dialog / Sheet). Tailwind v4 positions with the
-   `translate` property, so animating `transform` composes cleanly. */
+/* Dialog / Sheet */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -141,7 +136,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* keeps #contact clear of the sticky header */
+    /* clear the fixed header */
     scroll-padding-top: 5.5rem;
     -webkit-text-size-adjust: 100%;
   }
@@ -152,7 +147,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* clip (not hidden) so rotated strips never cause sideways scroll and sticky still works */
+    /* clip, not hidden, so position: sticky still works */
     overflow-x: clip;
   }
 
@@ -181,12 +176,10 @@
 }
 
 @layer utilities {
-  /* Subtle film grain, drawn with an inline SVG noise filter */
   .bg-grain {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
   }
 
-  /* Soft colour glow without a blur filter. Set the colour with --glow. */
   .glow {
     background-image: radial-gradient(
       closest-side,
@@ -199,7 +192,6 @@
     mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
   }
 
-  /* Outlined display text; set the stroke colour with --outline-color */
   .text-outline {
     -webkit-text-stroke: 2px var(--outline-color, var(--cream));
     color: transparent;

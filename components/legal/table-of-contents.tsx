@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 type TocItem = { id: string; text: string };
 
-/** Contents list that highlights the section currently being read. */
 export function TableOfContents({ items, className }: { items: TocItem[]; className?: string }) {
   const [active, setActive] = useState<string | null>(null);
 
@@ -56,7 +55,6 @@ export function TableOfContents({ items, className }: { items: TocItem[]; classN
   );
 }
 
-/** Headings are ALL CAPS in the source; sentence-case them for the compact list. */
 function toSentenceCase(text: string) {
   return text
     .toLowerCase()

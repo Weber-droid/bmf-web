@@ -6,6 +6,8 @@ import { Section } from "@/components/section";
 import { SectionHeading } from "@/components/section-heading";
 import { vendors } from "@/content/vendors";
 import type { ImageAsset } from "@/content/types";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 const tones = ["saffron", "white", "indigo", "jollof"] as const;
 
@@ -41,12 +43,16 @@ function ImageTile({ image }: { image: ImageAsset }) {
     >
       <Image
         src={image.src}
+        quality={IMAGE_QUALITY}
         alt={image.alt}
         fill
         sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 92vw"
-        className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+        className={cn(
+          "object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105",
+          imageTone.photo,
+        )}
       />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/10 to-transparent" />
     </RevealItem>
   );
 }

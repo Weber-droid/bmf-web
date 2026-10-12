@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 type CheckListProps = {
   items: readonly string[];
   className?: string;
-  /** Light text for dark backgrounds */
   inverted?: boolean;
   size?: "md" | "lg";
 };

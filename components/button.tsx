@@ -58,7 +58,6 @@ type ButtonLinkProps = Variants &
   ButtonContentProps &
   Omit<ComponentProps<"a">, "href" | "children"> & { href: string };
 
-/** Link styled as a button. Internal routes use next/link; external and hash links use <a>. */
 export function ButtonLink({
   href,
   variant,

@@ -43,16 +43,6 @@ If the production domain changes, update `url` in `content/site.ts`. It drives c
 | `content/legal/terms-conditions.ts`  | Terms & conditions, as structured blocks                                                                    |
 | `content/types.ts`, `legal/types.ts` | The shapes the content must follow                                                                          |
 
-Some things to know:
-
-- **Highlighted words.** A few headings have a `highlight` field, for example `home.hero.highlight: "Food Lovers"`. It must match text inside the heading exactly. That phrase gets the brand colour, and if it doesn't match, the heading simply renders unhighlighted.
-- **Community statement.** `home.community.parts` is the sentence split into pieces so the three groups can be styled as pills. Joined together, the parts must read as the full sentence.
-- **The "15\* minutes" stat** on the Vendors page lives in `vendors.technology.lead.stat`. The paragraph text around it is split into `before` and `after`.
-- **Copyright year.** Use `{year}` in `site.footer.copyright`. It's filled in automatically.
-- **Images.** Put files in `public/images/` and reference them as `/images/your-file.jpg`, with real `width` and `height` values (in pixels) and descriptive `alt` text. Decorative images use `alt: ""`.
-- **Icons.** Service cards use an `icon` name from the `IconName` list in `content/types.ts`. To add an icon, pick one from [lucide.dev](https://lucide.dev), then add it to that list and to `components/icon.tsx`.
-- **Legal pages.** Each block is `{ type: "h2" | "h3", id, text }`, `{ type: "p", content }` or `{ type: "ul", items }`. Bold text inside a paragraph is written as `{ strong: "..." }`. The table of contents is built from the `h2` blocks automatically.
-
 ## Folder structure
 
 ```

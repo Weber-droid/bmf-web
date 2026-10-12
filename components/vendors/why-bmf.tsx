@@ -5,6 +5,8 @@ import { CheckList } from "@/components/check-list";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { vendors } from "@/content/vendors";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 export function WhyBmf() {
   const { title, quote, image, listA, listB } = vendors.whyBmf;
@@ -37,10 +39,11 @@ export function WhyBmf() {
           <div className="relative aspect-[330/399] overflow-hidden rounded-[2rem] shadow-lift">
             <Image
               src={image.src}
+              quality={IMAGE_QUALITY}
               alt={image.alt}
               fill
               sizes="(min-width: 1024px) 340px, 84vw"
-              className="object-cover"
+              className={cn("object-cover", imageTone.photo)}
             />
           </div>
         </Reveal>

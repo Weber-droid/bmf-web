@@ -6,6 +6,8 @@ import { Section } from "@/components/section";
 import { Eyebrow, SectionHeading } from "@/components/section-heading";
 import { StepCard } from "@/components/step-card";
 import { home } from "@/content/home";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 export function Discover() {
   const { title, subtitle, image, stepsLabel, steps } = home.discover;
@@ -19,11 +21,15 @@ export function Discover() {
           <Blob className="absolute inset-0 -z-0 m-auto w-[95%] text-saffron/50" shape="b" />
           <Image
             src={image.src}
+            quality={IMAGE_QUALITY}
             alt={image.alt}
             width={image.width}
             height={image.height}
             sizes="(min-width: 1024px) 560px, 92vw"
-            className="relative h-auto w-full drop-shadow-[0_30px_40px_rgb(43_42_99/0.25)]"
+            className={cn(
+              "relative h-auto w-full drop-shadow-[0_30px_40px_rgb(43_42_99/0.25)]",
+              imageTone.art,
+            )}
           />
         </Reveal>
       </div>
@@ -34,7 +40,6 @@ export function Discover() {
         </Reveal>
 
         <div className="relative mt-10">
-          {/* Dashed line joining the step cards (visible in the gaps between them) */}
           <div
             aria-hidden
             className="absolute top-[3.25rem] right-[16%] left-[16%] hidden border-t-[3px] border-dashed border-jollof/60 md:block"

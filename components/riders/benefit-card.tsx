@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { RevealItem } from "@/components/motion/reveal";
 import type { Step } from "@/content/types";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
 import { cn } from "@/lib/utils";
 
 const tones = [
@@ -24,11 +25,15 @@ export function BenefitCard({ benefit, index }: { benefit: Step; index: number }
       <div className={cn("overflow-hidden rounded-[1.4rem]", tone.panel)}>
         <Image
           src={benefit.image.src}
+          quality={IMAGE_QUALITY}
           alt={benefit.image.alt}
           width={benefit.image.width}
           height={benefit.image.height}
           sizes="(min-width: 1024px) 360px, (min-width: 768px) 30vw, 88vw"
-          className="h-auto w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+          className={cn(
+            "h-auto w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105",
+            imageTone.art,
+          )}
         />
       </div>
       <h3 className="px-3 text-2xl leading-tight font-bold sm:text-[1.7rem]">{benefit.title}</h3>

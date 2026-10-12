@@ -32,7 +32,6 @@ export function Technology() {
             <p className="mt-5 text-lg leading-relaxed text-cream/80">{body}</p>
           </div>
 
-          {/* Big animated stat; the same figure is in the paragraph for screen readers */}
           <div
             aria-hidden
             className="relative mx-auto grid aspect-square w-full max-w-sm place-items-center"

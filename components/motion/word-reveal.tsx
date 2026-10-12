@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 export type WordRevealPart = {
   text: string;
   className?: string;
-  /** Keep the part together as one unit (e.g. a highlighted pill) instead of word by word */
   unit?: boolean;
   icon?: ReactNode;
 };
@@ -20,11 +19,6 @@ type WordRevealProps = {
   stagger?: number;
 };
 
-/**
- * Reveals a sentence word by word on scroll. A single in-view observer flips a
- * data attribute and CSS transitions do the rest, so long sentences stay cheap.
- * Screen readers get the plain sentence once; the animated words are hidden.
- */
 export function WordReveal({ parts, className, as = "p", stagger = 0.035 }: WordRevealProps) {
   const Tag = as;
   const ref = useRef<HTMLSpanElement>(null);

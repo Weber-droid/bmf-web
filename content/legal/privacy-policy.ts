@@ -1,4 +1,4 @@
-// Reproduced verbatim from https://bringme-food.com/privacy-policy/
+// Source: https://bringme-food.com/privacy-policy/
 import type { LegalDocument } from "./types";
 
 export const privacyPolicy: LegalDocument = {

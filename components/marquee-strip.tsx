@@ -5,10 +5,6 @@ type MarqueeStripProps = {
   className?: string;
 };
 
-/**
- * Infinite "Food • Drinks • Groceries • and more" ticker. The visible copy is
- * duplicated for the loop, so screen readers get one plain-text version.
- */
 export function MarqueeStrip({ items, className }: MarqueeStripProps) {
   const run = (hidden: boolean) => (
     <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center">

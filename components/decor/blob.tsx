@@ -10,7 +10,6 @@ type BlobProps = {
   shape?: keyof typeof shapes;
 };
 
-/** Organic background shape. Colour it with `text-*` utilities. */
 export function Blob({ className, shape = "a" }: BlobProps) {
   return (
     <svg
@@ -24,7 +23,6 @@ export function Blob({ className, shape = "a" }: BlobProps) {
   );
 }
 
-/** Soft gradient glows + grain used behind hero sections. */
 export function HeroBackdrop({ className }: { className?: string }) {
   return (
     <div

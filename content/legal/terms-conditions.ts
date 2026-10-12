@@ -1,4 +1,4 @@
-// Reproduced verbatim from https://bringme-food.com/terms-conditions/
+// Source: https://bringme-food.com/terms-conditions/
 import type { LegalDocument } from "./types";
 
 export const termsConditions: LegalDocument = {

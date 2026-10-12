@@ -1,8 +1,3 @@
-/**
- * Shared shapes for the editable copy in /content.
- * Components import these types; copy lives in the sibling data files.
- */
-
 export type ImageAsset = {
   src: string;
   alt: string;
@@ -17,7 +12,7 @@ export type Link = {
 
 export type Step = {
   title: string;
-  /** Optional second line, shown smaller beneath the title */
+  // optional second line under the title
   description?: string;
   image: ImageAsset;
 };
@@ -25,7 +20,7 @@ export type Step = {
 export type Feature = {
   title: string;
   body: string;
-  /** Name of a lucide-react icon, resolved in components/icon.tsx */
+  // see components/icon.tsx
   icon: IconName;
 };
 

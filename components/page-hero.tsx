@@ -7,17 +7,17 @@ import { ScrollCue } from "@/components/scroll-cue";
 import { Container } from "@/components/section";
 import { site } from "@/content/site";
 import type { ImageAsset } from "@/content/types";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 type PageHeroProps = {
   title: string;
   subtitle: string;
   image: ImageAsset;
-  /** Id of the next section, used by the scroll cue */
   nextId: string;
   children?: ReactNode;
 };
 
-/** Hero used by the inner marketing pages (Vendors, Riders). */
 export function PageHero({ title, subtitle, image, nextId, children }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden pt-28 pb-14 sm:pt-36 lg:pt-40 lg:pb-20">
@@ -47,12 +47,16 @@ export function PageHero({ title, subtitle, image, nextId, children }: PageHeroP
             <div className="absolute inset-[6%] motion-safe:animate-float-slow motion-safe:will-change-transform">
               <Image
                 src={image.src}
+                quality={IMAGE_QUALITY}
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
                 priority
                 sizes="(min-width: 1024px) 440px, 84vw"
-                className="h-full w-full object-contain drop-shadow-[0_30px_30px_rgb(20_18_43/0.25)]"
+                className={cn(
+                  "h-full w-full object-contain drop-shadow-[0_30px_30px_rgb(20_18_43/0.25)]",
+                  imageTone.art,
+                )}
               />
             </div>
           </div>

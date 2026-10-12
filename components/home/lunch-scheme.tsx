@@ -4,6 +4,8 @@ import { LunchSchemeDialog } from "@/components/home/lunch-scheme-dialog";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { home } from "@/content/home";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 export function LunchScheme() {
   const { title, body, image, cta, modal } = home.lunchScheme;
@@ -23,10 +25,11 @@ export function LunchScheme() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-lift">
             <Image
               src={image.src}
+              quality={IMAGE_QUALITY}
               alt={image.alt}
               fill
               sizes="(min-width: 1024px) 420px, 88vw"
-              className="object-cover"
+              className={cn("object-cover", imageTone.photo)}
             />
           </div>
           <span

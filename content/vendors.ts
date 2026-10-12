@@ -56,7 +56,7 @@ export const vendors = {
 
   technology: {
     title: "Our Technology",
-    /** P1 is split around the stat so "15* minutes" can be highlighted in place */
+    // before + stat + after = the full paragraph
     lead: {
       before:
         "Our highly scalable platform, available on Android, iOS and online is capable of processing multiple orders at the same time enabled by our algorithms that ensure orders can be delivered in as early as ",

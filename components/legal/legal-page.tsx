@@ -56,7 +56,6 @@ function Block({ block }: { block: LegalBlock }) {
   }
 }
 
-/** Long-form layout for Privacy Policy and Terms: prose column + sticky contents. */
 export function LegalPage({ document }: { document: LegalDocument }) {
   const toc = document.blocks
     .filter((b): b is Extract<LegalBlock, { type: "h2" }> => b.type === "h2")
@@ -74,7 +73,6 @@ export function LegalPage({ document }: { document: LegalDocument }) {
       <Container className="pb-8">
         <div className="grid gap-10 lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-16">
           <aside className="lg:order-none">
-            {/* Mobile: collapsible */}
             <details className="group rounded-3xl bg-white p-5 shadow-soft ring-1 ring-line lg:hidden">
               <summary className="flex cursor-pointer list-none items-center justify-between font-display text-lg font-bold [&::-webkit-details-marker]:hidden">
                 Contents
@@ -82,7 +80,6 @@ export function LegalPage({ document }: { document: LegalDocument }) {
               </summary>
               <TableOfContents items={toc} className="mt-4" />
             </details>
-            {/* Desktop: sticky */}
             <div className="sticky top-28 hidden max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl bg-white p-6 shadow-soft ring-1 ring-line lg:block">
               <p className="font-display text-lg font-bold">Contents</p>
               <TableOfContents items={toc} className="mt-4" />

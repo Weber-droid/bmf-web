@@ -10,6 +10,8 @@ import { Section } from "@/components/section";
 import { SectionHeading } from "@/components/section-heading";
 import { riders } from "@/content/riders";
 import { pageMetadata } from "@/lib/metadata";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = pageMetadata({
   title: "Riders",
@@ -47,10 +49,11 @@ export default function RidersPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-lift">
               <Image
                 src={requirements.image.src}
+                quality={IMAGE_QUALITY}
                 alt={requirements.image.alt}
                 fill
                 sizes="(min-width: 1024px) 440px, 88vw"
-                className="object-cover object-top"
+                className={cn("object-cover object-top", imageTone.photo)}
               />
             </div>
           </Reveal>

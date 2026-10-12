@@ -26,7 +26,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-GH" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <head>
         <noscript>
-          {/* Without JS, scroll-reveal content must still be visible */}
           <style>{`[data-reveal]{opacity:1!important;transform:none!important;translate:none!important}`}</style>
         </noscript>
       </head>

@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 export function MobileNav({ pathname }: { pathname: string }) {
   const [open, setOpen] = useState(false);
 
-  // Hash links: close the sheet first so the scroll lock is released, then scroll.
+  // close the sheet first, otherwise its scroll lock blocks the scroll
   const onHashClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (!href.startsWith("#")) return;
     event.preventDefault();

@@ -2,7 +2,6 @@
 
 import { m } from "framer-motion";
 
-/** Decorative ring that draws itself to `progress` (0–1) when scrolled into view. */
 export function ProgressRing({
   progress = 0.75,
   className,

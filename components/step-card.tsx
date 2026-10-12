@@ -2,12 +2,12 @@ import Image from "next/image";
 
 import { RevealItem } from "@/components/motion/reveal";
 import type { Step } from "@/content/types";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
 import { cn } from "@/lib/utils";
 
 type StepCardProps = {
   step: Step;
   index: number;
-  /** `illustration` shows a large picture; `icon` a small badge-sized image */
   variant?: "illustration" | "icon";
   className?: string;
 };
@@ -40,10 +40,11 @@ export function StepCard({ step, index, variant = "illustration", className }: S
           <span className="grid size-16 place-items-center rounded-2xl bg-cream transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
             <Image
               src={step.image.src}
+              quality={IMAGE_QUALITY}
               alt={step.image.alt}
               width={step.image.width}
               height={step.image.height}
-              className="h-9 w-auto"
+              className={cn("h-9 w-auto", imageTone.art)}
             />
           </span>
         )}
@@ -57,11 +58,15 @@ export function StepCard({ step, index, variant = "illustration", className }: S
           />
           <Image
             src={step.image.src}
+            quality={IMAGE_QUALITY}
             alt={step.image.alt}
             width={step.image.width}
             height={step.image.height}
             sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 70vw"
-            className="relative h-[78%] w-auto object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+            className={cn(
+              "relative h-[78%] w-auto object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105",
+              imageTone.art,
+            )}
           />
         </div>
       )}

@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { site } from "@/content/site";
+import { IMAGE_QUALITY } from "@/lib/image";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
   className?: string;
-  /** Renders the dark-ink logo on a cream tile so it reads on dark backgrounds */
   onDark?: boolean;
   priority?: boolean;
 };
@@ -24,6 +24,7 @@ export function Logo({ className, onDark = false, priority = false }: LogoProps)
     >
       <Image
         src={site.logo.src}
+        quality={IMAGE_QUALITY}
         alt={site.logo.alt}
         width={site.logo.width}
         height={site.logo.height}

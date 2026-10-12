@@ -9,6 +9,8 @@ import { Container } from "@/components/section";
 import { home } from "@/content/home";
 import { site } from "@/content/site";
 import { splitHighlight } from "@/lib/text";
+import { IMAGE_QUALITY, imageTone } from "@/lib/image";
+import { cn } from "@/lib/utils";
 
 const badgePositions = [
   "top-[6%] left-[2%] [animation-delay:-1s]",
@@ -67,7 +69,6 @@ export function HomeHero({ nextId }: { nextId: string }) {
 
         <Parallax className="relative mx-auto w-full max-w-[34rem]" distance={70}>
           <div className="relative aspect-square">
-            {/* Plate on a saffron sun with a jollof ring */}
             <div
               aria-hidden
               className="absolute inset-[6%] rounded-full bg-saffron shadow-[inset_0_-30px_60px_rgb(232_70_43/0.25)]"
@@ -81,12 +82,16 @@ export function HomeHero({ nextId }: { nextId: string }) {
             <div className="absolute inset-[4%] flex items-center justify-center motion-safe:animate-float-slow motion-safe:will-change-transform">
               <Image
                 src={image.src}
+                quality={IMAGE_QUALITY}
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
                 priority
                 sizes="(min-width: 1024px) 480px, 88vw"
-                className="h-auto w-full drop-shadow-[0_40px_40px_rgb(20_18_43/0.35)]"
+                className={cn(
+                  "h-auto w-full drop-shadow-[0_40px_40px_rgb(20_18_43/0.35)]",
+                  imageTone.photo,
+                )}
               />
             </div>
 

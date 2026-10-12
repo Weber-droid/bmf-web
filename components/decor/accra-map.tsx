@@ -1,9 +1,5 @@
 import { cn } from "@/lib/utils";
 
-/**
- * Stylised, decorative map of Accra: a coastline, the Odaw river and a
- * scatter of streets with a pulsing pin. Hidden from assistive technology.
- */
 export function AccraMap({ className }: { className?: string }) {
   return (
     <div aria-hidden className={cn("relative aspect-square", className)}>
@@ -19,7 +15,6 @@ export function AccraMap({ className }: { className?: string }) {
         </defs>
         <g clipPath="url(#map-clip)">
           <rect width="400" height="400" fill="#fff7ec" fillOpacity="0.06" />
-          {/* Gulf of Guinea */}
           <path
             d="M0 300 C60 285 90 310 140 300 S230 270 280 285 S360 300 400 280 V400 H0Z"
             fill="url(#sea)"
@@ -30,7 +25,6 @@ export function AccraMap({ className }: { className?: string }) {
             strokeOpacity="0.55"
             strokeWidth="2"
           />
-          {/* Odaw river */}
           <path
             d="M120 0 C130 60 100 110 125 160 S150 250 140 300"
             stroke="#8fb7ff"
@@ -38,7 +32,6 @@ export function AccraMap({ className }: { className?: string }) {
             strokeWidth="6"
             strokeLinecap="round"
           />
-          {/* Ring road + arterials */}
           <ellipse
             cx="215"
             cy="175"
@@ -63,7 +56,6 @@ export function AccraMap({ className }: { className?: string }) {
               <path key={`v${i}`} d={`M${i * 32} 0 V300`} />
             ))}
           </g>
-          {/* Delivery route */}
           <path
             d="M70 90 C120 120 150 90 190 130 S240 170 222 196"
             stroke="#ffb020"
@@ -75,7 +67,6 @@ export function AccraMap({ className }: { className?: string }) {
         </g>
       </svg>
 
-      {/* Pin */}
       <div className="absolute top-[49%] left-[55.5%] -translate-x-1/2 -translate-y-full">
         <span className="absolute bottom-0 left-1/2 size-16 -translate-x-1/2 translate-y-1/2 animate-ping rounded-full bg-jollof/40 [animation-duration:2.4s]" />
         <svg

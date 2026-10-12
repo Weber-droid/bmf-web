@@ -58,9 +58,8 @@ export const site = {
       { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms & conditions", href: "/terms-conditions" },
     ] satisfies Link[],
-    /** `{year}` is replaced with the current year at render time */
+    // {year} is filled in automatically
     copyright: "Copyright © {year} Bring Me-Group. All rights reserved",
-    credit: { prefix: "Website by", label: "DeduceInc", href: "https://deduceinc.com/" },
   },
 } as const;
 

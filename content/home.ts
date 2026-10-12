@@ -3,7 +3,7 @@ import type { ImageAsset, Step, Teaser } from "./types";
 export const home = {
   hero: {
     title: "BringMe-Food is the platform for all Food Lovers.",
-    /** Words within the title that get the brand highlight */
+    // must match text in the title exactly
     highlight: "Food Lovers",
     subtitle: "Bringing you all your favourite foods at your fingertips.",
     image: {
@@ -12,7 +12,6 @@ export const home = {
       width: 476,
       height: 397,
     } satisfies ImageAsset,
-    /** Decorative floating badges around the hero image (hidden from screen readers) */
     badges: [
       { emoji: "🍲", label: "Food" },
       { emoji: "🥤", label: "Drinks" },
@@ -23,10 +22,7 @@ export const home = {
   marquee: ["Food", "Drinks", "Groceries", "and more"],
 
   community: {
-    /**
-     * The statement is split so the three community groups can be highlighted.
-     * Joined together it reads exactly as the original sentence.
-     */
+    // joined together, the parts must read as the full sentence
     parts: [
       { text: "Our Community is made up of " },
       { text: "Food Lovers", highlight: "saffron" },
@@ -107,7 +103,7 @@ export const home = {
 
   statement: {
     text: "Here at BMF, we believe it is our responsibility to uplift, educate and celebrate our abundant Ghanaian communities.",
-    /** Phrase within the text that gets the brand highlight */
+    // must match text in the statement exactly
     highlight: "uplift, educate and celebrate",
   },
 

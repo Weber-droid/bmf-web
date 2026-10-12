@@ -10,7 +10,6 @@ type SectionHeadingProps = {
   align?: "left" | "center";
   as?: "h1" | "h2" | "h3";
   size?: "display" | "title";
-  /** Light text for dark sections */
   inverted?: boolean;
   className?: string;
   id?: string;

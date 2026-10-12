@@ -1,4 +1,3 @@
-/** Inline text: plain strings, or bold runs */
 export type LegalInline = string | { strong: string };
 
 export type LegalBlock =

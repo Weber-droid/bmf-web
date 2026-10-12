@@ -8,7 +8,6 @@ import { ogSize } from "@/lib/og-image-meta";
 
 export { ogAlt, ogSize } from "@/lib/og-image-meta";
 
-/** Shared social card renderer used by opengraph-image and twitter-image. */
 export async function renderOgImage() {
   const [logo, dish] = await Promise.all([
     readFile(join(process.cwd(), "public", site.logo.src)),

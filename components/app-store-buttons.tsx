@@ -8,10 +8,8 @@ type AppStoreButtonsProps = {
   size?: "md" | "lg";
 };
 
-/** Official App Store and Google Play badges. Both SVGs share a 3.375:1 ratio. */
 export function AppStoreButtons({ className, size = "lg" }: AppStoreButtonsProps) {
   const { appStore, googlePlay } = site.apps;
-  // Rendered height is set by class (44px on small phones so both badges fit on one row).
   const height = size === "lg" ? 54 : 44;
   const width = Math.round(height * 3.375);
 
